@@ -1,0 +1,102 @@
+
+<section class="vh-120 p-md-5" style="background-color: rgb(238, 250, 219);">
+    <button type="submit" class="logout btn btn-primary btn-lg p-md-2" (click)="logout()">Logout</button>
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-">
+                <div class="card text-black" style="border-radius: 25px;">
+                    <div class="card-body p-md-4">
+                        <div class="row justify-content-center">
+                            <div class="col-md-9 col-lg-5 col-xl-5 order-2 order-lg-1">
+
+                                <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-4 mt-3">Fresher Report Form</p>
+                                <form class="mx-1 mx-md-4" (ngSubmit)="createReport()" ngNativeValidate>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="from" >From Date</label>
+                                            <input type="date" id="from" name="from" class="form-control" [(ngModel)]="criteria.fromDate" placeholder="Enter From Date" required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="email">To Date</label>
+                                            <input type="date" id="to" name="to" class="form-control" [(ngModel)]="criteria.toDate" placeholder="Enter To Date"/>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div>
+                                            <label class="input-group-text" for="bu">Business Unit</label>
+                                        </div>
+                                        <select class="custom-select form-control" [(ngModel)]="criteria.bu" name="bu" id="bu">
+                                            <option selected>Select BU...</option>
+                                            <option value="APAC">APAC</option>
+                                            <option value="FS">FS</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="taskDesc">Task Description </label>
+                                            <select class="custom-select form-control" [(ngModel)]="criteria.taskDesc" id="taskDesc" name="taskDesc">
+                                                <option selected> Select Task Description...</option>
+                                                <option value="Observing the Development Process">Observing the Development Process</option>
+                                                <option value="Review of code which was already written">Review of code which was already written</option>
+                                                <option value="Writing Test Cases/Automation Test Cases">Writing Test Cases/Automation Test Cases</option>
+                                                <option value="Unit Testing Application">Unit Testing Application</option>
+                                                <option value="Creating documentation">Creating documentation</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-primary btn-lg">View Report</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="vh-120 p-md-5" style="background-color: rgb(238, 250, 219);">
+<div class="card text-black" style="border-radius: 25px;">
+<div class="card-body p-md-4">
+<table class="table">
+    <thead class="bg-dark text-center text-white">
+        <tr>
+            <th>ID</th>
+            <th>DATE</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>BU</th>
+            <th>PROJECT NAME</th>
+            <th>PROJECT MENTOR</th>
+            <th>TASK DESCRIPTION</th>
+        </tr>
+    </thead>
+    <tbody class=" ">
+        <tr *ngFor="let user of endusers">
+            <td>{{user.id}}</td>
+            <td>{{user.date}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.bu}}</td>
+            <td>{{user.pName}}</td>
+            <td>{{user.pMentor}}</td>
+            <td>{{user.taskDesc}}</td>
+    </tbody>
+</table>
+</div>
+</div>
+</section>

@@ -1,0 +1,120 @@
+<section class="vh-120 p-md-5" style="background-color: rgb(238, 250, 219);">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+                <div class="card text-black" style="border-radius: 25px;">
+                    <div class="card-body p-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Fresher Project Form</p>
+                                <form class="mx-1 mx-md-4" #fresherData="ngForm" (ngSubmit)="registerUser(fresherData)" ngNativeValidate>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" >Do you have Capgemini ID? &nbsp; &nbsp; &nbsp;</label>
+                                            <label for="chkYes">
+                                                <input type="radio" id="chkYes" name="chk" (click)="ShowHideDiv()" #chkYes/>
+                                                Yes &nbsp; &nbsp; &nbsp;
+                                            </label>
+                                            <label for="chkNo">
+                                                <input type="radio" id="chkNo" name="chk" (click)="ShowHideDiv()" #chkYes/>
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0" id="dvtext" style="display: none" #dvtext>
+                                            <label class="form-label" for="id">Capgemini ID</label>
+                                            <input type="number" id="txtBox" (blur)="Autocomplete()" name="id" class="form-control" [(ngModel)]="user.id" placeholder="Enter CG Id if available"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="name">Your Name</label>
+                                            <input type="text" id="name"  name="name" class="form-control" [(ngModel)]="user.name" placeholder="Enter name" required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="email">Capgemini Email</label>
+                                            <input type="email" id="email" name="email" class="form-control" [(ngModel)]="user.email" placeholder="Enter Capgemini Email" required/>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div>
+                                            <label class="input-group-text" for="bu">Business Unit</label>
+                                        </div>
+                                        <select class="custom-select form-control" name="bu" id="bu"  [(ngModel)]="user.bu" required>
+                                            <option selected>Select BU...</option>
+                                            <option value="APAC">APAC</option>
+                                            <option value="FS">FS</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="pname">Shadow Project Name</label>
+                                            <input type="text" id="pname" name="pName" class="form-control" [(ngModel)]="user.pName" placeholder="Enter Project Name" required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="pmentor">Shadow Project Mentor</label>
+                                            <input type="text" id="pmentor" name="pMentor" class="form-control"  [(ngModel)]="user.pMentor" placeholder="Enter Project Mentor" required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="taskDesc">Task Description </label>
+                                            <select class="custom-select form-control" id="taskDesc" name="taskDesc" [(ngModel)]="user.taskDesc" required>
+                                                <option selected>Select Task Description...</option>
+                                                <option value="Observing the Development Process">Observing the Development Process</option>
+                                                <option value="Review of code which was already written">Review of code which was already written</option>
+                                                <option value="Writing Test Cases/Automation Test Cases">Writing Test Cases/Automation Test Cases</option>
+                                                <option value="Unit Testing Application">Unit Testing Application</option>
+                                                <option value="Creating documentation">Creating documentation</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-check d-flex justify-content-center mb-5">
+                                        <input class="form-check-input me-2" type="checkbox" value=""
+                                            id="form2Example3c" />
+                                        <label class="form-check-label" for="form2Example3">
+                                            I agree all statements in <a href="/fresher">Terms of service</a>
+                                        </label>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                                <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png"
+                                    class="img-fluid" alt="Sample image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

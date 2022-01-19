@@ -1,0 +1,13 @@
+server:
+  port: 1234 #port of Application
+  
+spring:
+  application:
+    name: Shadow  #name of application
+  datasource:    url: jdbc:mysql://localhost:3306/himank
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: admin
+  jpa:    show-sql: true
+    hibernate:      ddl-auto: update
+ 

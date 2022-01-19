@@ -1,0 +1,45 @@
+<section class="h-100 gradient-form" style="background-color: rgb(238, 250, 219);">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <h2 style="text-align: center; font-family: algerian;">Administrator Login</h2>
+        <div class="col-xl-10">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+  
+                  <form class="form-group" (ngSubmit)="userlogin()" ngNativeValidate>                   
+  
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form">User ID</label>
+                      <input type="text" id="id" class="form-control" placeholder="Enter Your User ID" name = "id" [(ngModel)]="userData.id" required/>
+                      
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form" >Password</label>
+                      <input type="password" id="password" class="form-control" name = "password" placeholder="Enter Password" [(ngModel)]="userData.password" required/>
+                      
+                    </div>
+  
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log in</button> 
+                    </div>
+  
+                  </form>
+  
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4">We are more than just a Company</h4>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
