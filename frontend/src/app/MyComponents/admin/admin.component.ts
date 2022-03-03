@@ -11,6 +11,8 @@ export class AdminComponent implements OnInit {
 
   allUsers: any;
   localItem: any;
+  loggedIn = false;
+  sessionItem: any;
 
   userData = {
     id: 0,
@@ -19,12 +21,22 @@ export class AdminComponent implements OnInit {
     password: ""
   }
 
-  constructor(private aservice: AnalyticUserService,private router: Router) {
+  constructor(private aservice: AnalyticUserService, private router: Router) {
     this.localItem = localStorage.getItem("allUsers");
     this.allUsers = JSON.parse(this.localItem);
   }
 
-  ngOnInit(): void { this.viewAnalyticUsers(); }
+  ngOnInit(): void {
+    this.viewAnalyticUsers();
+
+    this.sessionItem = sessionStorage.getItem('aloggedIn');
+    this.loggedIn = JSON.parse(this.sessionItem);
+
+    if (this.loggedIn === false) {
+      this.router.navigate(['/adminLogin'])
+    }
+  }
+
   ngDOCheck(): void {
     this.localItem = localStorage.getItem("allUsers");
     this.allUsers = JSON.parse(this.localItem);
@@ -36,11 +48,12 @@ export class AdminComponent implements OnInit {
   }
 
   public logout(): void {
+    this.loggedIn = false;
+    sessionStorage.setItem('aloggedIn', JSON.stringify(this.loggedIn));
     this.router.navigate(['/adminLogin']);
   }
 
   public viewAnalyticUsers(): void {
     this.aservice.viewAllUsers().then(x => localStorage.setItem('allUsers', JSON.stringify(x)));
-    console.log(this.allUsers);
   }
 }
